@@ -1,0 +1,11 @@
+# yeah, you can do this, but just don't...
+- hosts: localhost
+  vars:
+    ansible_connection: winrm
+    ansible_winrm_server_cert_validation: ignore
+    ansible_host: 192.168.33.19
+    ansible_user: vagrant
+    ansible_password: vagrant
+  gather_facts: no
+  tasks:
+  - win_ping:

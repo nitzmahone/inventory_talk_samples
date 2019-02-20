@@ -1,0 +1,30 @@
+# we don't know about any of these yet; nothing to do...
+- hosts: win
+  tasks:
+  - win_ping:
+
+# add the host/group *really* dynamically
+- hosts: localhost
+  tasks:
+  - name: ensure Windows guest is running
+    shell: vagrant up win2019-default
+    args:
+      chdir: /home/mdavis/projects/inventory_talk
+
+  - add_host:
+      name: win2019-default
+      groups: win
+      ansible_connection: winrm
+      ansible_user: vagrant
+      ansible_password: vagrant
+      ansible_winrm_server_cert_validation: ignore
+      ansible_host: 192.168.33.19
+
+    # block execution until the host is ready to manage
+  - wait_for_connection:
+    delegate_to: win2019-default
+
+# now this works!
+- hosts: win
+  tasks:
+  - win_ping:
