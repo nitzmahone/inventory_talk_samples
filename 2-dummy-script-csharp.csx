@@ -5,6 +5,9 @@
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
+// TODO: talk to some external source of truth 
+
+// get the inventory data into the right structure
 var d = new Dictionary<string, object> {
 	{"_meta", new Dictionary<string, object> {
 		{"hostvars", new Dictionary<string, object> {
@@ -21,4 +24,6 @@ var d = new Dictionary<string, object> {
 	}},
 };
 
+// dump inventory structure as JSON to the console
 Console.WriteLine(JsonConvert.SerializeObject(d, Formatting.Indented));
+

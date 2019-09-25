@@ -6,6 +6,5 @@
     ansible_host: 192.168.33.19
     ansible_user: vagrant
     ansible_password: vagrant
-  gather_facts: no
   tasks:
   - win_ping:

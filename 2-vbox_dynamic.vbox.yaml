@@ -1,9 +1,11 @@
 plugin: virtualbox
 running_only: yes
-strict: yes
 groups:
   win: '"win" in inventory_hostname'
-network_info_path: /VirtualBox/GuestInfo/Net/1/V4/IP
+
+# network_info_path: /VirtualBox/GuestInfo/Net/1/V4/IP
+
+# ick. there is a better way
 compose:
   ansible_connection: "'winrm'"
   ansible_winrm_server_cert_validation: "'ignore'"

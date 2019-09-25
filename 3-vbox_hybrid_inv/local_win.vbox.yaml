@@ -4,7 +4,8 @@ running_only: yes
 
 strict: yes
 
-network_info_path: /VirtualBox/GuestInfo/Net/1/V4/IP
+# network_info_path: /VirtualBox/GuestInfo/Net/1/V4/IP
 
 groups:
   win: '"win" in inventory_hostname'
+

@@ -1,8 +1,10 @@
 win:
   hosts:
-    192.168.33.19:
+    webserver:
+      ansible_host: 192.168.33.19
   vars:
     ansible_connection: winrm
     ansible_winrm_server_cert_validation: ignore
     ansible_user: vagrant
     ansible_password: vagrant
+

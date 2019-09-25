@@ -6,12 +6,13 @@
 # add a new host we want to talk to
 - hosts: localhost
   tasks:
-  - name: ensuring Windows host is running
+  - name: create a new Windows host
     shell: vagrant up win2019-default
-    args:
-      chdir: /home/mdavis/projects/inventory_talk
 
-  # now just ask inventory to refresh dynamic sources...
+  - debug:
+      msg: about to refresh inventory, hang on!
+
+# now just ask inventory to refresh dynamic sources...
   - meta: refresh_inventory
 
 # now this works!
@@ -20,5 +21,6 @@
   # block execution until the host is ready to manage
   - wait_for_connection:
 
+  # do stuff with host, now that it's responding...
   - win_ping:
 
